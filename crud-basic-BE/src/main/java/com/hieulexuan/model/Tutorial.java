@@ -8,8 +8,8 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "employee")
-public class Employee {
+@Table(name = "tutorial")
+public class Tutorial {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -17,53 +17,54 @@ public class Employee {
 	private long id;
 
 	@Column(name = "first_name")
-	private String firstName;
+	private String title;
 
 	@Column(name = "last_name")
-	private String lastName;
+	private String description;
 
 	@Column(name = "email")
-	private String email;
+	private boolean published;
 
-	public Employee() {
+	public Tutorial() {
 	}
 
-	public Employee(String firstName, String lastName, String email) {
-		this.firstName = firstName;
-		this.lastName = lastName;
-		this.email = email;
+	public Tutorial(String title, String description, boolean published) {
+		this.title = title;
+		this.description = description;
+		this.published = published;
+	}
+
+	public String getTitle() {
+		return title;
+	}
+
+	public void setTitle(String title) {
+		this.title = title;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+	public boolean getPublished() {
+		return published;
+	}
+
+	public void setPublished(boolean published) {
+		this.published = published;
 	}
 
 	public long getId() {
 		return id;
 	}
 
-	public String getFirstName() {
-		return firstName;
-	}
-
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
-	}
-
-	public String getLastName() {
-		return lastName;
-	}
-
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
-	}
-
-	public String getEmail() {
-		return email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
-	}
-
 	@Override
 	public String toString() {
-		return "Employee [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", email=" + email + "]";
+		return "Tutorial [id=" + id + ", title=" + title + ", description=" + description + ", published=" + published
+				+ "]";
 	}
 }

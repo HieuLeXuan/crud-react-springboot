@@ -1,11 +1,16 @@
 package com.hieulexuan.repository;
 
+import java.util.List;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import com.hieulexuan.model.Employee;
+import com.hieulexuan.model.Tutorial;
 
 @Repository
-public interface EmployeeRepository extends JpaRepository<Employee, Long> {
+public interface TutorialRepository extends JpaRepository<Tutorial, Long> {
 
+	List<Tutorial> findByPublished(boolean published);
+
+	List<Tutorial> findByTitleContaining(String title);
 }
